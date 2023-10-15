@@ -12,15 +12,6 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-def fake_long_function(
-    manystuff: str,
-    thatstuff: int,
-    this_is_a_long_variable_name: dict,
-    althoughitistogether: str,
-) -> str:
-    pass
-
-
 def strip_html_tags(text):
     """Remove HTML tags from a string using regular expressions."""
     clean = re.compile("<.*?>")
