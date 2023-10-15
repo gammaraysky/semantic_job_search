@@ -1,14 +1,24 @@
-import requests
 import json
-import time
+import logging
 import random
 import re
-import logging
+import time
+
+import requests
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 )
 logger = logging.getLogger(__name__)
+
+
+def fake_long_function(
+    manystuff: str,
+    thatstuff: int,
+    this_is_a_long_variable_name: dict,
+    althoughitistogether: str,
+) -> str:
+    pass
 
 
 def strip_html_tags(text):
