@@ -1,0 +1,30 @@
+# SETUP YOUR SEARCH
+
+# 1. SIMPLE SEARCH:
+# Set the scraper_query.search variable to the search string you want:
+
+
+# 2. ADVANCED SEARCH:
+# To set more details/filters in the search query:
+# - Go to [mycareersfuture.gov.sg](mycareersfuture.gov.sg) and apply a search using the specs you want. (e.g. min salary, full time/contract/etc...)
+# - Open web developer tools and go to Network. Refresh the page. (These instructions for Firefox, but Chrome should be similar)
+# - Find the row item that says `GET`, `api.mycareersfuture.gov.sg` `search?search=data&salary=...` (this being whatever you specced)
+# - Right click, Copy Value, Copy URL parameters. Below was my example.
+# - You could also copy as curl command, send to chatGPT and ask it to convert it for you for as a yaml. It should match the items below:
+
+# Set the scraper_query variable to the search you want:
+scraper_query:
+  sessionId: ""
+  search: "data"
+  salary: 6000
+  positionLevels: ["Executive", "Junior Executive", "Fresh/entry level"]
+  postingCompany: []
+scraper_delay: 0.5
+
+scraper_starturl: "https://api.mycareersfuture.gov.sg/v2/search?limit=20&page=0"
+scraper_results_file: './data/scraper_results.json'
+user_resume_txt_file: './data/resume.txt'
+
+similarity_top_k: 20
+
+instruction_prompt: "Given the user's resume below, which of the given job listings are the best match with the user's job experience? Return the top 3 matches company names and urls."
